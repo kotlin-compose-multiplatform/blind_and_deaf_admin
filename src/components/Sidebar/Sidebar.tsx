@@ -1,98 +1,118 @@
-import React, {useContext} from "react";
-import {Box, Button, Divider, IconButton, Stack, Typography} from "@mui/material";
+import React, { useContext } from "react";
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import styled from "styled-components";
-import {colors, Fonts} from "../../common/theme";
-import Logo, {WhiteLogo} from "../Common/Logo";
+import { colors, Fonts } from "../../common/theme";
+import Logo, { WhiteLogo } from "../Common/Logo";
 import NavItem from "./NavItem";
-import {HomeFilled, SettingFilled, ReadFilled, FolderOpenFilled, ChromeFilled} from "@ant-design/icons";
+import {
+  HomeFilled,
+  SettingFilled,
+  ReadFilled,
+  FolderOpenFilled,
+  ChromeFilled,
+} from "@ant-design/icons";
 import it from "node:test";
-import {AppContext} from "../../App";
-import ArticleIcon from '@mui/icons-material/Article';
-import {useNavigate} from "react-router-dom";
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import InfoIcon from '@mui/icons-material/Info';
-import WebIcon from '@mui/icons-material/Web';
-import HandshakeIcon from '@mui/icons-material/Handshake';
-import SafetyDividerIcon from '@mui/icons-material/SafetyDivider';
-import DiscountIcon from '@mui/icons-material/Discount';
+import { AppContext } from "../../App";
+import ArticleIcon from "@mui/icons-material/Article";
+import { useNavigate } from "react-router-dom";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import InfoIcon from "@mui/icons-material/Info";
+import WebIcon from "@mui/icons-material/Web";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import SafetyDividerIcon from "@mui/icons-material/SafetyDivider";
+import DiscountIcon from "@mui/icons-material/Discount";
 import i18n from "i18next";
-
+import { ImageRounded } from "@mui/icons-material";
 
 export const sideitems = [
-    {
-        link: "/",
-        icon: <HomeFilled/>,
-        title: 'home_page',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/'
-    },
-    {
-        link: "/news",
-        icon: <ReadFilled/>,
-        title: 'news',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/news'
-    },
-    {
-        link: "/project",
-        icon: <FolderOpenFilled/>,
-        title: 'projects',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/project'
-    },
-    {
-        link: "/certificate",
-        icon: <ArticleIcon/>,
-        title: 'certificate',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/certificate'
-    },
-    {
-        link: "/about",
-        icon: <InfoIcon/>,
-        title: 'about',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/about'
-    },
-    {
-        link: "/product",
-        icon: <DiscountIcon/>,
-        title: 'product',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/product'
-    },
-    {
-        link: "/links",
-        icon: <WebIcon/>,
-        title: 'links',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/links'
-    },
-    {
-        link: "/partners",
-        icon: <HandshakeIcon/>,
-        title: 'partners',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/partners'
-    },
-    {
-        link: "/parts",
-        icon: <SafetyDividerIcon/>,
-        title: 'parts',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/parts'
-    },
-    {
-        link: "/other_about",
-        icon: <InfoIcon/>,
-        title: 'other_about',
-        endIcon: <KeyboardArrowRightIcon/>,
-        endLink: '/other_about'
-    }
-]
+  {
+    link: "/",
+    icon: <HomeFilled />,
+    title: "home_page",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/",
+  },
+  {
+    link: "/news",
+    icon: <ReadFilled />,
+    title: "news",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/news",
+  },
+  {
+    link: "/project",
+    icon: <FolderOpenFilled />,
+    title: "projects",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/project",
+  },
+  {
+    link: "/certificate",
+    icon: <ArticleIcon />,
+    title: "certificate",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/certificate",
+  },
+  {
+    link: "/banner",
+    icon: <InfoIcon />,
+    title: "banner",
+    endIcon: <ImageRounded />,
+    endLink: "/about",
+  },
+  {
+    link: "/about",
+    icon: <InfoIcon />,
+    title: "about",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/about",
+  },
+  {
+    link: "/product",
+    icon: <DiscountIcon />,
+    title: "product",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/product",
+  },
+  {
+    link: "/links",
+    icon: <WebIcon />,
+    title: "links",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/links",
+  },
+  {
+    link: "/partners",
+    icon: <HandshakeIcon />,
+    title: "partners",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/partners",
+  },
+  {
+    link: "/parts",
+    icon: <SafetyDividerIcon />,
+    title: "parts",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/parts",
+  },
+  {
+    link: "/other_about",
+    icon: <InfoIcon />,
+    title: "other_about",
+    endIcon: <KeyboardArrowRightIcon />,
+    endLink: "/other_about",
+  },
+];
 
 interface Props {
-    width: string;
+  width: string;
 }
 
 const SideBackground = styled.div<Props>`
@@ -105,76 +125,97 @@ const SideBackground = styled.div<Props>`
   top: 0;
   bottom: 0;
   position: fixed;
-  width: ${props => props.width ? props.width : '20%'};
+  width: ${(props) => (props.width ? props.width : "20%")};
   overflow: scroll;
   overflow-x: hidden;
 `;
 
-
 interface IProps {
-    close?: () => void
+  close?: () => void;
 }
-
 
 const Sidebar: React.FC<IProps> = (props: IProps) => {
-    const {isMobile} = useContext(AppContext);
-    const navigation = useNavigate();
-    return (
-        <SideBackground width={isMobile ? '100%' : '20%'}>
-            <Stack>
-                {
-                    isMobile ? <Box sx={{width: '100%', mt: 10}}></Box> :
-                        <Box sx={{p: 2, width: '100%'}}>
-                            <WhiteLogo/>
-                        </Box>
+  const { isMobile } = useContext(AppContext);
+  const navigation = useNavigate();
+  return (
+    <SideBackground width={isMobile ? "100%" : "20%"}>
+      <Stack>
+        {isMobile ? (
+          <Box sx={{ width: "100%", mt: 10 }}></Box>
+        ) : (
+          <Box sx={{ p: 2, width: "100%" }}>
+            <WhiteLogo />
+          </Box>
+        )}
+
+        <Divider color={"#31455e"} />
+        {sideitems.map((item, i) => {
+          return (
+            <div
+              key={`side-item-${i}`}
+              onClick={() => {
+                if (props.close) {
+                  props.close();
                 }
+                navigation(item.link);
+              }}
+            >
+              <NavItem
+                icon={item.icon}
+                title={item.title}
+                endIcon={item.endIcon}
+                link={item.link}
+                endLink={item.endLink}
+              />
+              <Divider color={"#31455e"} />
+            </div>
+          );
+        })}
 
-                <Divider color={'#31455e'}/>
-                    {
-                        sideitems.map((item, i) => {
-                            return (
-                                <div key={`side-item-${i}`}
-                                     onClick={() => {
-                                         if (props.close) {
-                                             props.close()
-                                         }
-                                         navigation(item.link);
-                                     }}>
-                                    <NavItem icon={item.icon} title={item.title} endIcon={item.endIcon} link={item.link}
-                                             endLink={item.endLink}/>
-                                    <Divider color={'#31455e'}/>
-                                </div>
-                            )
-                        })
-                    }
+        <Box sx={{ width: isMobile ? "100%" : "100%" }}>
+          <Divider color={"#31455e"} />
+          <Stack
+            direction={"row"}
+            spacing={2}
+            sx={{ width: "100%", mt: 1, mb: 1 }}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Button
+              variant={"outlined"}
+              onClick={() => {
+                i18n.changeLanguage("tm");
+                localStorage.setItem("lng", "tm");
+              }}
+            >
+              TM
+            </Button>
+            <Button
+              variant={"outlined"}
+              onClick={() => {
+                i18n.changeLanguage("ru");
+                localStorage.setItem("lng", "ru");
+              }}
+            >
+              RU
+            </Button>
+          </Stack>
+          <Divider color={"#31455e"} />
+          <Typography
+            sx={{
+              color: "white",
+              fontFamily: Fonts.RalewayMedium,
+              p: 2,
+              textAlign: "center",
+              fontSize: "12px",
+            }}
+          >
+            Developed by: @Sh.Alyyev
+          </Typography>
+        </Box>
+      </Stack>
+    </SideBackground>
+  );
+};
 
-
-                <Box sx={{width: isMobile ? '100%' : '100%'}}>
-                    <Divider color={'#31455e'}/>
-                    <Stack direction={'row'} spacing={2} sx={{width: '100%', mt: 1, mb: 1}} alignItems={'center'}
-                           justifyContent={'center'}>
-                        <Button variant={'outlined'} onClick={()=>{
-                            i18n.changeLanguage('tm');
-                            localStorage.setItem('lng','tm')
-                        }}>TM</Button>
-                        <Button variant={'outlined'} onClick={()=>{
-                            i18n.changeLanguage('ru');
-                            localStorage.setItem('lng','ru')
-                        }}>RU</Button>
-                    </Stack>
-                    <Divider color={'#31455e'}/>
-                    <Typography sx={{
-                        color: 'white',
-                        fontFamily: Fonts.RalewayMedium,
-                        p: 2,
-                        textAlign: 'center',
-                        fontSize: '12px'
-                    }}>Developed by: @Sh.Alyyev</Typography>
-                </Box>
-
-            </Stack>
-        </SideBackground>
-    )
-}
-
-export default Sidebar
+export default Sidebar;
