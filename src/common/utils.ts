@@ -1,45 +1,79 @@
-import {BASE_URL_2} from "./AxiosInstance";
+import { BASE_URL_2 } from "./AxiosInstance";
 
 export function valueChecker(value: any) {
-    try {
-        let it = value[0];
-        console.log(value);
-        return value;
-    } catch (err) {
-        return [];
-    }
+  try {
+    let it = value[0];
+    console.log(value);
+    return value;
+  } catch (err) {
+    return [];
+  }
 }
 
-export function getImagePath(name:string){
-    return `${BASE_URL_2}/${name}`;
+export function getImagePath(name: string) {
+  return `${BASE_URL_2}/${name}`;
 }
 
-export function getVideoPath(name:string){
-    return `${BASE_URL_2}/${name}`;
+export function getVideoPath(name: string) {
+  return `${BASE_URL_2}/${name}`;
 }
 
-export function getOtherPath(name:string){
-    return `${BASE_URL_2}/${name}`;
+export function getOtherPath(name: string) {
+  return `${BASE_URL_2}/${name}`;
 }
 
-export const convertTimeStampToDate=(s:string)=>{
-    let d=new Date(s);
-    return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-}
+export const convertTimeStampToDate = (s: string) => {
+  let d = new Date(s);
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+};
 
-export const convertTimeStampToTime=(s:string)=>{
-    let d=new Date(s);
-    return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
-}
+export const convertTimeStampToTime = (s: string) => {
+  let d = new Date(s);
+  return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+};
 
-export const convertDateAndTime=(s:string)=>{
-    return `${convertTimeStampToDate(s)} ${convertTimeStampToTime(s)}`
-}
+export const convertDateAndTime = (s: string) => {
+  return `${convertTimeStampToDate(s)} ${convertTimeStampToTime(s)}`;
+};
 
 export const ABOUT_TYPE = {
-    ABOUT_US: 0,
-    LINK: 1,
-    PARTNER: 2,
-    PARTS: 3,
-    OTHER_ABOUT: 4
-}
+  ABOUT_US: 0,
+  LINK: 1,
+  PARTNER: 2,
+  PARTS: 3,
+  OTHER_ABOUT: 4,
+};
+
+export const editorButtons = [
+  ["undo", "redo", "font", "fontSize", "formatBlock"],
+  [
+    "bold",
+    "underline",
+    "italic",
+    "strike",
+    "subscript",
+    "superscript",
+    "removeFormat",
+  ],
+  [
+    "fontColor",
+    "hiliteColor",
+    "outdent",
+    "indent",
+    "align",
+    "horizontalRule",
+    "list",
+    "table",
+  ],
+  [
+    "link",
+    "image",
+    "video",
+    "fullScreen",
+    "showBlocks",
+    "codeView",
+    "preview",
+    "print",
+    "save",
+  ],
+];

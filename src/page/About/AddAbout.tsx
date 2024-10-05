@@ -22,6 +22,7 @@ import { useTranslation } from "react-i18next";
 import { AboutType } from "../../common/Model/Model";
 import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
+import { editorButtons } from "../../common/utils";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -219,32 +220,31 @@ const AddAbout: React.FC<IProps> = (props: IProps) => {
             <Grid item xs={12}>
               <Typography>{t("Content TM")}</Typography>
               <SunEditor
+                setOptions={{
+                  buttonList: editorButtons,
+                }}
                 onChange={(newContent) => setContentTm(newContent)}
                 defaultValue={contentTm}
               />
             </Grid>
             <Grid item xs={12}>
               <Typography>{t("Content RU")}</Typography>
-              <JoditEditor
-                ref={editor}
-                config={{
-                  ...config,
+              <SunEditor
+                setOptions={{
+                  buttonList: editorButtons,
                 }}
-                onBlur={(newContent) => setContentRu(newContent)} // preferred to use only this option to update the content for performance reasons
-                onChange={(newContent) => {}}
-                value={contentRu}
+                onChange={(newContent) => setContentRu(newContent)}
+                defaultValue={contentRu}
               />
             </Grid>
             <Grid item xs={12}>
               <Typography>{t("Content EN")}</Typography>
-              <JoditEditor
-                ref={editor}
-                config={{
-                  ...config,
+              <SunEditor
+                setOptions={{
+                  buttonList: editorButtons,
                 }}
-                onBlur={(newContent) => setContentEn(newContent)} // preferred to use only this option to update the content for performance reasons
-                onChange={(newContent) => {}}
-                value={contentEn}
+                onChange={(newContent) => setContentEn(newContent)}
+                defaultValue={contentEn}
               />
             </Grid>
           </Grid>
