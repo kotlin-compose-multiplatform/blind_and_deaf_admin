@@ -62,9 +62,9 @@ export const sideitems = [
   },
   {
     link: "/banner",
-    icon: <InfoIcon />,
+    icon: <ImageRounded />,
     title: "banner",
-    endIcon: <ImageRounded />,
+    endIcon: <KeyboardArrowRightIcon />,
     endLink: "/about",
   },
   {
